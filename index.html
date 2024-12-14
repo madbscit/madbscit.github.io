@@ -47,18 +47,21 @@
         }
 
         .row img.animate {
-            animation: zoomEffect 3s forwards;
+            animation: zoomEffect 2s forwards;
         }
 
         @keyframes zoomEffect {
             0% {
-                transform: scale(0);
+                transform: scale(1);
+                opacity: 1;
             }
             50% {
-                transform: scale(200);
+                transform: scale(3);
+                opacity: 0.5;
             }
             100% {
-                transform: scale(0);
+                transform: scale(5);
+                opacity: 0;
             }
         }
 
@@ -121,7 +124,7 @@
 </div>
 
 <footer>
-    Designed for sharing notes to the students of Bsc(IT)
+    Designed for sharing notes to the students of BSc(IT)
 </footer>
 
 <script>
@@ -130,15 +133,16 @@
         element.classList.add('animate'); // Add the animation class
         setTimeout(() => {
             window.location.href = url; // Redirect after animation
-        }, 3000); // Delay matches the animation duration (0.5s)
+        }, 2000); // Delay matches the animation duration
     }
-    window.onbeforeunload = () => {
-    const images = document.querySelectorAll('.row img');
-    images.forEach((img) => {
-        img.classList.remove('animate');
-    });
-};
 
+    // Ensure animation state is reset on navigation back
+    window.onpageshow = () => {
+        const images = document.querySelectorAll('.row img');
+        images.forEach((img) => {
+            img.classList.remove('animate');
+        });
+    };
 </script>
 
 </body>
