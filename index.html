@@ -1,82 +1,93 @@
 <!DOCTYPE html>
-<html>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
+<html lang="en">
 <head>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSc(IT) Notes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('logo.jpg');
+            background-size: cover;
+        }
 
-   
-   body { 
-       font-family: 'Arial', sans-serif; 
-       margin: 0;
-       padding: 0;
-       background-image: url('logo.jpg') opacity:70%;
-   }
+        h1 {
+            text-align: center;
+            color: #000000;
+            font-size: 4em;
+            margin-top: 30px;
+        }
 
-   body:background-image{
-   opacity:30%;
-      
-   }
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 7%;
+            margin-bottom: 8%;
+        }
 
+        .row div {
+            text-align: center;
+            position: relative;
+        }
 
-   h1 {
-       text-align: center;
-       color: #000000;
-       font-size: 4em;
-       margin-top: 30px;
-   }
+        .row img {
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 20px;
+            box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
 
-   .row {
-       display: flex;
-       justify-content: center;
-       gap: 7%; /* Adjusted gap */
-       margin-bottom: 8%; /* Adjusted margin */
-   }
+        .row img:hover {
+            transform: scale(1.1);
+            box-shadow: 6px 10px 14px rgba(0, 0, 0, 0.4);
+        }
 
-   .row div {
-       text-align: center;
-       position: relative;
-   }
+        .row img.animate {
+            animation: zoomEffect 3s forwards;
+        }
 
-   .row img {
-       width: 250px;
-       height: 250px;
-       object-fit: contain;
-       border-radius: 20px;
-       box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.3);
-       transition: transform 0.3s ease, box-shadow 0.3s ease;
-   }
+        @keyframes zoomEffect {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(500);
+            }
+            100% {
+                transform: scale(10000000000);
+            }
+        }
 
-   .row img:hover {
-       transform: scale(1.1);
-       box-shadow: 6px 10px 14px rgba(0, 0, 0, 0.4);
-   }
+        .label {
+            margin-top: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333333;
+            transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
+            position: relative;
+        }
 
-   .label {
-       margin-top: 10px;
-       font-size: 1.2em;
-       font-weight: bold;
-       color: #333333;
-       transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
-       position: relative;
-   }
+        .row div:hover .label {
+            color: #89253e;
+            transform: translateY(10px);
+            font-size: 1.5em;
+        }
 
-   /* Hover effect for individual images and labels */
-   .row div:hover .label {
-       color: #89253e;
-       transform: translateY(10px); /* Moves the label downward */
-       font-size: 1.5em; /* Makes the label bigger */
-   }
-
-   footer {
-       text-align: center;
-       padding: 20px;
-       margin-top: 20px;
-       font-size: 18px;
-       color: #ffffff;
-       background: linear-gradient(135deg, #3a6186, #89253e);
-       box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.3);
-   }
-</style>
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #3a6186, #89253e);
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 <body>
 
@@ -84,35 +95,45 @@
 
 <!-- First Row -->
 <div class="row">
-   <div>
-      <img src="r.png" alt="R Programming Logo">
-      <div class="label">R Programming</div>
-   </div>
-   <div>
-      <img src="wd.png" alt="Web Designing Logo">
-      <div class="label">Web Designing</div>
-   </div>
-   <div>
-      <img src="c++.png" alt="OOPS with C++ Logo">
-      <div class="label">OOPS with C++</div>
-   </div>
+    <div>
+        <img src="./mad_files/r.png" alt="R Programming Logo" onclick="animateAndRedirect(this, 'r_notes')">
+        <div class="label">R Programming</div>
+    </div>
+    <div>
+        <img src="./mad_files/wd.png" alt="Web Designing Logo" onclick="animateAndRedirect(this, 'https://example.com')">
+        <div class="label">Web Designing</div>
+    </div>
+    <div>
+        <img src="./mad_files/c++.png" alt="OOPS with C++ Logo" onclick="animateAndRedirect(this, 'https://example.com')">
+        <div class="label">OOPS with C++</div>
+    </div>
 </div>
 
 <!-- Second Row -->
 <div class="row">
-   <div>
-      <img src="al.png" alt="Assembly Language Logo">
-      <div class="label">Assembly Language Programming</div>
-   </div>
-   <div>
-      <img src="plsql.png" alt="PL/SQL Logo">
-      <div class="label">PL/SQL</div>
-   </div>
+    <div>
+        <img src="./mad_files/al.png" alt="Assembly Language Logo" onclick="animateAndRedirect(this, 'https://example.com')">
+        <div class="label">Assembly Language Programming</div>
+    </div>
+    <div>
+        <img src="./mad_files/plsql.png" alt="PL/SQL Logo" onclick="animateAndRedirect(this, 'https://example.com')">
+        <div class="label">PL/SQL</div>
+    </div>
 </div>
 
 <footer>
-Designed for sharing notes to the students of Bsc(IT)
+    Designed for sharing notes to the students of Bsc(IT)
 </footer>
+
+<script>
+    // Function to animate and redirect
+    function animateAndRedirect(element, url) {
+        element.classList.add('animate'); // Add the animation class
+        setTimeout(() => {
+            window.location.href = url; // Redirect after animation
+        }, 1000); // Delay matches the animation duration (0.5s)
+    }
+</script>
 
 </body>
 </html>
